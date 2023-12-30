@@ -3,7 +3,8 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import os
-
+import requests
+import configparser
 # Initialize Flask App
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'YourSecretKey'
@@ -133,4 +134,4 @@ if __name__ == '__main__':
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
         os.makedirs(app.config['UPLOAD_FOLDER'])
 
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=5000)
