@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Images</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .image-container {
+            display: inline-block;
+            margin: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: 250px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .image-url {
+            margin-top: 10px;
+            color: #555;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .image-container a {
+            display: block;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .image-container a:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            display: inline-block;
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Images Uploaded by Students</h1>
+    {% for url in image_urls %}
+        <div class="image-container">
+            <img src="{{ url }}" alt="Uploaded Image">
+            <p class="image-url">Image URL: <a href="{{ url }}">{{ url }}</a></p>
+            <a href="{{ url_for('feedback', filename=url.split('/')[-1]) }}">Provide Feedback</a>
+        </div>
+    {% endfor %}
+    <a href="/index" class="back-link">Back to Home</a>
+</body>
+</html>

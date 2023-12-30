@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            padding: 50px;
+            color: white;
+            /* Default background image */
+            background-image: url('https://source.unsplash.com/random');
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 200px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 220px;
+            padding: 10px;
+            border: none;
+            background-color: #5c67a3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4b5487;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="post">
+        <div>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+
+    <script>
+        // Function to change the background image
+        function changeBackground() {
+            // Fetch a random image from Unsplash
+            var imageUrl = 'https://source.unsplash.com/random';
+            document.body.style.backgroundImage = 'url(' + imageUrl + ')';
+        }
+
+        // Change background when the page loads
+        window.onload = changeBackground;
+    </script>
+</body>
+</html>

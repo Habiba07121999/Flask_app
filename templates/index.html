@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dentistry E-Learning</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('dental-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        .navbar {
+            background-color: #005f73; /* Dark blue shade */
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 4px #000000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .navbar a:hover {
+            background-color: #0a9396; /* Lighter blue */
+            color: black;
+        }
+
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(0, 59, 63, 0.8); /* Translucent background for content */
+            border-radius: 8px;
+            display: inline-block;
+            max-width: 600px;
+        }
+
+        a.button {
+            background-color: #94d2bd; /* Soft green */
+            margin: 10px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #e9d8a6; /* Soft yellow */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to Dentistry E-Learning</h1>
+        <p>Select an option from the menu to get started</p>
+        {% if role == 'student' %}
+            <a href="/upload" class="button">Upload Image</a>
+            <a href="/my_images" class="button">View My Images</a>
+        {% elif role == 'doctor' %}
+            <a href="/view_images" class="button">View Uploaded Images</a>
+        {% endif %}
+    </div>
+</body>
+</html>
